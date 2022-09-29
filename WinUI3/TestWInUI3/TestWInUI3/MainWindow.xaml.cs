@@ -28,9 +28,20 @@ namespace TestWInUI3
             this.InitializeComponent();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void CheckTime()
         {
-            myButton.Content = "Clicked";
+            // Using the SelectedTime property (nullable requires cast to DateTime).
+            DateTime myTime = (DateTime)(DateTime.Today + checkTimePicker.SelectedTime);
+            if (DateTime.Now >= myTime)
+            {
+                resultText.Text = "Your selected time has already past.";
+            }
+            else
+            {
+                string hrs = (myTime - DateTime.Now).Hours.ToString();
+                string mins = (myTime - DateTime.Now).Minutes.ToString();
+                resultText.Text = string.Format("Your selected time is {0} hours, {1} minutes from now.", hrs, mins);
+            }
         }
     }
 }
