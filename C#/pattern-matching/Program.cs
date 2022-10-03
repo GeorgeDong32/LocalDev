@@ -4,7 +4,7 @@ using ConsumerVehicleRegistration;
 using LiveryRegistration;
 using Calculators;
 
-var car = new Car();
+/*var car = new Car();
 var taxi = new Taxi();
 var bus = new Bus();
 var truck = new DeliveryTruck();
@@ -31,9 +31,9 @@ try
 catch (ArgumentNullException _)
 {
     Console.WriteLine("Caught an argument exception when using null");
-}
+}*/
 
-/*  2nd test (after adding for occupants)
+/*  2nd test (after adding for occupants)*/
 var tollCalc = new TollCalculator();
 
 var soloDriver = new Car();
@@ -86,7 +86,6 @@ catch (ArgumentNullException e)
 {
     Console.WriteLine("Caught an argument exception when using null");
 }
-*/
 
 /*
 Console.WriteLine("Testing the time premiums");
