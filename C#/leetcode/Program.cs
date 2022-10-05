@@ -1,4 +1,5 @@
-﻿/*A+B*/
+﻿using System;
+/*A+B
 public class Solution
 {
     public int[] TwoSum(int[] nums, int target)
@@ -19,5 +20,34 @@ public class Solution
             start++;
         }
         return re;
+    }
+}*/
+/*IsPalindrome*/
+public class Solution
+{
+    public bool IsPalindrome(int x)
+    {
+        if (x < 0)
+            return false;
+        else
+        {
+            var xstr = x.ToString();
+            Console.WriteLine(xstr);
+            Console.WriteLine(xstr.Reverse().ToString());
+            if (xstr == xstr.Reverse().ToString())
+
+                return true;
+            else
+                return false;
+        }
+    }
+}
+
+public class Mainc
+{
+    public static void Main()
+    {
+        int input = Convert.ToInt32(Console.ReadKey());
+        Console.WriteLine(IsPalindrome(input));
     }
 }
