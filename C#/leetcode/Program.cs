@@ -23,6 +23,7 @@ public class Solution
     }
 }*/
 /*IsPalindrome*/
+namespace Ispalindrome;
 public class Solution
 {
     public bool IsPalindrome(int x)
@@ -43,11 +44,14 @@ public class Solution
     }
 }
 
-public class Mainc
+class TestClass
 {
-    public static void Main()
+    static void Main(string[] args)
     {
-        int input = Convert.ToInt32(Console.ReadKey());
-        Console.WriteLine(IsPalindrome(input));
+        int x = Convert.ToInt32(Console.ReadKey().ToString());
+        // Display the number of command line arguments.
+        var test = new Solution();
+        bool answer = test.IsPalindrome(x);
+        Console.WriteLine(answer);
     }
 }
