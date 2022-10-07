@@ -14,9 +14,10 @@ namespace Test
 
         static void Main(string[] args)
         {
-            int num = 0;
-            num = Convert.ToInt32(Console.ReadLine());
-            System.Console.WriteLine("Hello World!", num);
+            Console.WriteLine("Please input num");
+            var num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello World!" + num);
+            Console.WriteLine(13 + num);
             int age = 19;
             string name = "张三丰";
             Console.WriteLine("你好，我叫" + name + "我今年" + age + "岁了");
