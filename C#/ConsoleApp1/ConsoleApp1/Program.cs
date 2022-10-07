@@ -1,38 +1,26 @@
-﻿// C# program to illustrate 
-// the use of Console.ReadLine() 
-using System;
-using System.IO;
+﻿using System;
 
-class GFG
+namespace Test
 {
-
-    // Main Method 
-    public static void Main()
+    class test
     {
-        int age;
-        string name;
-
-        Console.WriteLine("Enter your name: ");
-
-        // using the method 
-        // typecasting not needed  
-        // as ReadLine returns string 
-        name = Console.ReadLine();
-
-        Console.WriteLine("Enter your age: ");
-
-        // Converted string to int 
-        age = Convert.ToInt32(Console.ReadLine());
-
-        if (age >= 18)
+        public void swap(ref int x, ref int y)
         {
-            Console.WriteLine("Hello " + name + "!"
-                        + " You can vote");
+            int temp;
+            temp = x;
+            x = y;
+            y = temp;
         }
-        else
+
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello " + name + "!"
-                + " Sorry you can't vote");
+            Console.WriteLine("Please input num");
+            var num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello World!" + num);
+            Console.WriteLine((num + 13));
+            int age = 19;
+            string name = "张三丰";
+            Console.WriteLine("你好，我叫" + name + "我今年" + age + "岁了");
         }
     }
 }

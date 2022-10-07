@@ -21,7 +21,6 @@ namespace Test
             int age = 19;
             string name = "张三丰";
             Console.WriteLine("你好，我叫" + name + "我今年" + age + "岁了");
-
         }
     }
 }
