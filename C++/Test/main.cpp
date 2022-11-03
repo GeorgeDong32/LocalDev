@@ -1,25 +1,22 @@
 #include <iostream>
+#include "Solution.h"
+#include <vector>
 using namespace std;
 
 int main()
 {
-    int n = 0;
-    cin >> n;
-    int* num = new int[n];
-    int* maxAdress = &num[0];
-    cout << "num adress: " << num << endl;
-    for(int i = 0; i < n; i++)
-        cin >> num[i];
-    for(int i = 0; i < n; i++)
+    Solution s = Solution();
+    vector<vector<char>> test(6,vector<char>(6));
+    char temp = 0;
+    for(int i = 0; i < 6; i++)
     {
-        cout << "before: num[" << i << "] = " << num[i] << "\t&num[" << i << "] = " << &num[i] << endl;
-        if(*maxAdress < num[i])
+        for(int j = 0; j < 6; j++)
         {
-            maxAdress = &num[i];
-            cout << num << endl;
+            cin >> temp;
+            test[i].push_back(temp);
         }
     }
-    cout << "the max num is " << *maxAdress << "and its adress is " << maxAdress << endl;
-    delete[] num;
+    int re = s.maximalSquare(test);
+    cout << "Result: " << re << endl;
     return 0;
 }
