@@ -7,6 +7,7 @@ Console.WriteLine(_appdataPath);
 string LocalMKPath = Path.Combine(_appdataPath, "GoodPass", "MKconfig.txt");
 
 var LocalMKHash = "";
+var ts = File.ReadAllTextAsync(LocalMKPath);
 
 try
 {
@@ -23,10 +24,21 @@ catch (System.IO.FileNotFoundException)
 finally
 {
     if (LocalMKHash == "")
+    {
         Console.WriteLine("Empty");
+        Console.WriteLine(ts.Result);
+    }
     else
     {
         Console.WriteLine(LocalMKHash);
+        Console.WriteLine(ts.Result);
     }
-
+    if (ts.Result == String.Empty)
+    {
+        Console.WriteLine("Empty");
+    }
+    else
+    {
+        Console.WriteLine("Not empty");
+    }
 }
