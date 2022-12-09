@@ -1,18 +1,18 @@
-﻿/*test write
-var data = new string[4] { "a", "b", "c", "d" };
-var time = DateTime.Now;
-var path = @".\test.csv";
-File.AppendAllText(path, $"{data[0]},{data[1]},{data[2]},{data[3]},{time}", System.Text.Encoding.UTF8);
-/*test read*/
-var filePath = @".\test.csv";
-var dataLines = File.ReadLines(filePath);
-foreach (var line in dataLines)
+﻿int[] grades = { 59, 82, 70, 56, 92, 98, 85 };
+
+IEnumerable<int> lowerGrades =
+    grades.OrderByDescending(g => g);
+
+Console.WriteLine("All grades except the top three are:");
+foreach (int grade in lowerGrades)
 {
-    var data = line.Split(',');
-    Console.WriteLine(data[0]);
-    Console.WriteLine(data[1]);
-    Console.WriteLine(data[2]);
-    Console.WriteLine(data[3]);
-    var time = DateTime.Parse(data[4]);
-    Console.WriteLine(time);
+    Console.WriteLine(grade);
+}
+
+Console.WriteLine("The top three grades are:");
+
+lowerGrades = lowerGrades.Skip(3);
+foreach (int grade in lowerGrades)
+{
+    Console.WriteLine(grade);
 }
