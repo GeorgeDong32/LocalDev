@@ -29,7 +29,7 @@ int count_primes(int n)
 
 DateTime dt1 = System.DateTime.Now;
 
-Console.WriteLine($"There are {count_primes(1000000)} primes less than {100000}.");
+Console.WriteLine($"There are {count_primes(1000000)} primes less than {1000000}.");
 DateTime dt2 = System.DateTime.Now;
 
 TimeSpan ts = dt2.Subtract(dt1);
