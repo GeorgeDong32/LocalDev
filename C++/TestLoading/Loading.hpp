@@ -14,22 +14,22 @@ void LoadingRing(int rotationTime)//控制台中的加载动画，输入为旋�
     }
 }
 
-void ProcessBar(int processTime, int processbarLength)//控制台中的进度条，输入为加载时间和进度条共有几个进度块
+void ProcessBar(int processTime, int processbarLength = 20)//控制台中的进度条，输入为加载时间和进度条共有几个进度块
 {
 	int devidedTime = processTime / processbarLength;
 	printf("");
 	for (int i = 0; i < processbarLength; i++)
 	{
-		printf("\r|");
+		printf("\r[");
 		for (int j = 0; j < i; j++)
 		{
-			printf("");
+			printf("■");//打印进度条方块
 		}
 		for (int j = i; j < processbarLength - 1; j++)
 		{
 			printf(" ");
 		}
-		printf("|");
+		printf("]");
 		Sleep(devidedTime);
 	}
 }

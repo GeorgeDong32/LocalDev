@@ -3,6 +3,6 @@
 
 int main() {
 	//LoadingRing(200);
-	ProcessBar(1000, 10);
+	ProcessBar(10000);
     return 0;
 }
