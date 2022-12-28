@@ -1,7 +1,5 @@
 """Count the prime numbers in the range [1, n]
 """
-# 0.19631648063659668s on RYZEN 5 5600H
-
 import taichi as ti
 ti.init(arch=ti.cpu)
 import time
