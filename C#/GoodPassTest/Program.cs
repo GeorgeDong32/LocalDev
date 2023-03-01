@@ -9,9 +9,13 @@ namespace Aes_Example
         {
             string original = "DGhIhEJH[DiXj~{FB";
 
-            byte[] IVBytes = AESHelper.GenerateIV();
+            byte[] IVBytes = Convert.FromBase64String("s2JQAXsW/sBEUeOJjuzWAg==");
 
             string IVStr = Convert.ToBase64String(IVBytes);
+
+            byte[] KeyBytes = AESHelper.GenerateKey("GoodPassTest");
+
+            string KeyStr = Convert.ToBase64String(KeyBytes);
 
             Console.WriteLine(IVStr);
 
@@ -20,7 +24,8 @@ namespace Aes_Example
             // vector (IV).
             using (Aes myAes = Aes.Create())
             {
-
+                myAes.Key = KeyBytes;
+                myAes.IV = IVBytes;
                 Console.WriteLine("Test AESHelper");
                 string encStr2 = AESHelper.EncryptToBase64(original, myAes.Key, myAes.IV);
                 string decStr2 = AESHelper.DecryptFromBase64(encStr2, myAes.Key, myAes.IV);

@@ -95,4 +95,21 @@ public static class AESHelper
             return aes.IV;
         }
     }
+
+    public static byte[] GenerateKey()
+    {
+        using (Aes aes = Aes.Create())
+        {
+            return aes.Key;
+        }
+    }
+
+    public static byte[] GenerateKey(string password)
+    {
+        using (Aes aes = Aes.Create())
+        {
+            Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, aes.IV);
+            return rfc2898DeriveBytes.GetBytes(32);
+        }
+    }
 }
