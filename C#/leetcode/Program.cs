@@ -1,64 +1,55 @@
-﻿ListNode l1 = new ListNode(5, null);
-ListNode l2 = new ListNode(5, null);
-
-var result = new Solution().AddTwoNumbers(l1, l2);
-
-while (result != null)
+﻿public class Solution
 {
-    Console.Write(result.val);
-    result = result.next;
-}
-
-public class ListNode
-{
-    public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode next = null)
+    public int RomanToInt(string s)
     {
-        this.val = val;
-        this.next = next;
-    }
-}
-
-public class Solution
-{
-    public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
-    {
-        var temp1 = l1; var temp2 = l2;
-        var sum = 0; var carry = 0;
-        var first = 1;
-        ListNode result = null;
-        ListNode current = null;
-        bool end = true;
-        do
+        var result = 0;
+        //预处理
+        s = s.Replace("IV", "a");
+        s = s.Replace("IX", "b");
+        s = s.Replace("XL", "c");
+        s = s.Replace("XC", "d");
+        s = s.Replace("CD", "e");
+        s = s.Replace("CM", "f");
+        //处理
+        for (int i = 0; i < s.Length; i++)
         {
-            sum = (temp1.val + temp2.val + carry) % 10;
-            carry = (temp1.val + temp2.val + carry) / 10;
-            if (first == 1)
-            {
-                result = new ListNode(sum);
-                first = 0;
-                current = result;
-            }
-            else
-            {
-                current.next = new ListNode(sum);
-                current = current.next;
-            }
-            if (temp1.next == null && temp2.next == null && carry == 0)
-            {
-                end = false;
-            }
-            if (temp1.next == null)
-                temp1.next = new ListNode();
-            if (temp2.next == null)
-                temp2.next = new ListNode();
-            temp1 = temp1.next;
-            temp2 = temp2.next;
+            result += GetValue(s[i]);
         }
-        while ((temp1 != null || temp2 != null) && end);
-
-
         return result;
+    }
+
+    public int GetValue(char c)
+    {
+        switch (c)
+        {
+            case 'a':
+                return 4;
+            case 'b':
+                return 9;
+            case 'c':
+                return 40;
+            case 'd':
+                return 90;
+            case 'e':
+                return 400;
+            case 'f':
+                return 900;
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                return 0;
+        }
     }
 }
