@@ -1,46 +1,24 @@
-﻿var solution = new Solution();
-ListNode l1 = null; ListNode l2 = null;
-var l3 = new ListNode(1, new ListNode(2, new ListNode(4, null)));
-var l4 = new ListNode(1, new ListNode(3, new ListNode(4, null)));
-ListNode l5 = null; var l6 = new ListNode(0, null);
-
-Console.WriteLine(solution.MergeTwoLists(l1, l2));
-Console.WriteLine(solution.MergeTwoLists(l3, l4));
-Console.WriteLine(solution.MergeTwoLists(l5, l6));
-
-public class ListNode
-{
-    public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode next = null)
-    {
-        this.val = val;
-        this.next = next;
-    }
-}
+﻿var sol = new Solution();
+var test = new int[] { 1, 1, 1, 1, 1, 2 };
+Console.WriteLine("{0}  {1}", sol.RemoveDuplicates(test), test);
 
 public class Solution
 {
-    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+    public int RemoveDuplicates(int[] nums)
     {
-        if (list1 == null || list2 == null)
+        var len = nums.Length;
+        if (nums.Length == 0)
+            return 0;
+        var l = 1; var r = 1;
+        while (l < len)
         {
-            return (list1 == null) ? list2 : list1;
-        }
-        else
-        {
-            if (list1.val < list2.val)
+            if (nums[l] != nums[l - 1])
             {
-                list1.next = MergeTwoLists(list1.next, list2);
-                GC.Collect();
-                return list1;
+                nums[r] = nums[l];
+                r++;
             }
-            else
-            {
-                list2.next = MergeTwoLists(list2.next, list1);
-                GC.Collect();
-                return list2;
-            }
+            l++;
         }
+        return r;
     }
 }
