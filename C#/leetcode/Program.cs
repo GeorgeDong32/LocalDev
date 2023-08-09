@@ -1,24 +1,20 @@
-﻿var sol = new Solution();
-var test = new int[] { 1, 1, 1, 1, 1, 2 };
-Console.WriteLine("{0}  {1}", sol.RemoveDuplicates(test), test);
+﻿/*Q28*/
+var s = new Solution();
+var h = "sadbutsad"; var n = "sad";
+Console.WriteLine(s.StrStr(h, n));
 
 public class Solution
 {
-    public int RemoveDuplicates(int[] nums)
+    public int StrStr(string haystack, string needle)
     {
-        var len = nums.Length;
-        if (nums.Length == 0)
-            return 0;
-        var l = 1; var r = 1;
-        while (l < len)
+        haystack = haystack.Replace(needle, "@");
+        for (var i = 0; i < haystack.Length; i++)
         {
-            if (nums[l] != nums[l - 1])
+            if (haystack[i] == '@')
             {
-                nums[r] = nums[l];
-                r++;
+                return i;
             }
-            l++;
         }
-        return r;
+        return -1;
     }
 }
