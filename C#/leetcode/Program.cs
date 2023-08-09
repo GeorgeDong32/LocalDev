@@ -1,20 +1,34 @@
-﻿/*Q28*/
-var s = new Solution();
-var h = "sadbutsad"; var n = "sad";
-Console.WriteLine(s.StrStr(h, n));
+﻿/*Q35*/
+var solution = new Solution();
+
 
 public class Solution
 {
-    public int StrStr(string haystack, string needle)
+    public int SearchInsert(int[] nums, int target)
     {
-        haystack = haystack.Replace(needle, "@");
-        for (var i = 0; i < haystack.Length; i++)
+        int len = nums.Length;
+        if (target < nums[0])
         {
-            if (haystack[i] == '@')
-            {
-                return i;
-            }
+            return 0;
         }
-        return -1;
+        else if (target > nums[len - 1])
+        {
+            return len;
+        }
+        else
+        {
+            var l = 0; var r = len - 1;
+            while (l <= r)
+            {
+                var mid = l + (r - l) / 2;
+                if (nums[mid] < target)
+                {
+                    l = mid + 1;
+                }
+                else
+                    r = mid - 1;
+            }
+            return l;
+        }
     }
 }
