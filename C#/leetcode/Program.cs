@@ -1,16 +1,28 @@
-﻿/*Q35*/
+﻿/*Q58*/
 var solution = new Solution();
-
+Console.WriteLine(solution.LengthOfLastWord("  Test Helllo     "));
 
 public class Solution
 {
-    public int SearchInsert(int[] nums, int target)
+    public int LengthOfLastWord(string s)
     {
-        for (var i = 0; i < nums.Length; i++)
+        s = s.Trim();
+        if (string.IsNullOrEmpty(s))
         {
-            if (nums[i] >= target)
-                return i;
+            return 0;
         }
-        return nums.Length;
+        var len = s.Length; var count = 0;
+        for (var i = len - 1; i >= 0; i--)
+        {
+            if (s[i] != ' ')
+            {
+                count++;
+            }
+            else
+            {
+                return count;
+            }
+        }
+        return count;
     }
 }
