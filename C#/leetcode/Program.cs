@@ -1,28 +1,23 @@
 ﻿/*Q58*/
 var solution = new Solution();
-Console.WriteLine(solution.LengthOfLastWord("  Test Helllo     "));
+Console.WriteLine(solution.PlusOne(new int[] { 1, 2, 3 }));
 
 public class Solution
 {
-    public int LengthOfLastWord(string s)
+    public int[] PlusOne(int[] digits)
     {
-        s = s.Trim();
-        if (string.IsNullOrEmpty(s))
+        int len = digits.Length;
+        for (int i = len - 1; i >= 0; i--)
         {
-            return 0;
-        }
-        var len = s.Length; var count = 0;
-        for (var i = len - 1; i >= 0; i--)
-        {
-            if (s[i] != ' ')
+            digits[i] += 1;
+            digits[i] %= 10;
+            if (digits[i] != 0)
             {
-                count++;
-            }
-            else
-            {
-                return count;
+                return digits;
             }
         }
-        return count;
+        int[] temp = new int[len + 1];
+        temp[0] = 1;
+        return temp;
     }
 }
