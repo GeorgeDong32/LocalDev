@@ -1,23 +1,49 @@
-﻿/*Q58*/
+﻿/*Q67*/
 var solution = new Solution();
-Console.WriteLine(solution.PlusOne(new int[] { 1, 2, 3 }));
+Console.WriteLine(solution.AddBinary("111", "10"));
 
 public class Solution
 {
-    public int[] PlusOne(int[] digits)
+    public string AddBinary(string a, string b)
     {
-        int len = digits.Length;
-        for (int i = len - 1; i >= 0; i--)
+        var ml = a.Length > b.Length ? a.Length : b.Length;
+        var result = ""; var carry = 0;
+        if (a.Length != ml)
         {
-            digits[i] += 1;
-            digits[i] %= 10;
-            if (digits[i] != 0)
+            for (var i = a.Length; i < ml; i++)
             {
-                return digits;
+                a = "0" + a;
             }
         }
-        int[] temp = new int[len + 1];
-        temp[0] = 1;
-        return temp;
+        else if (b.Length != ml)
+        {
+            for (var i = b.Length; i < ml; i++)
+            {
+                b = "0" + b;
+            }
+        }
+        for (var i = ml - 1; i >= 0; i--)
+        {
+            var mid = 0;
+            if (a[i] == '1' && b[i] == '1')
+            {
+                mid = 0 + carry;
+                carry = 1;
+            }
+            else if ((a[i] == '1' && b[i] == '0') || (b[i] == '1' && a[i] == '0'))
+            {
+                mid = (1 + carry) % 2;
+                carry = (1 + carry) / 2;
+            }
+            else
+            {
+                mid = carry;
+                carry = 0;
+            }
+            result = ((mid == 1) ? "1" : "0") + result;
+        }
+        if (carry == 1)
+            result = "1" + result;
+        return result;
     }
 }
