@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"vadimcn.vscode-lldb",
+			"usernamehw.errorlens",
+			"zhuangtongfa.material-theme",
+			"rust-lang.rust-analyzer"
+		]
+	}
+}
